@@ -1,6 +1,6 @@
+streamlit
 ultralytics
-torch
-torchvision
+pdf2image
 opencv-python
 pillow
-matplotlib
+numpy
