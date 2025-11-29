@@ -90,6 +90,6 @@ The model successfully detects table regions in bank statements with:
 - High precision (99.8%) - minimal false positives
 - Consistent performance across different bank formats
 
-## License
+## Author
 
-MIT License
+Affan Ahmed
