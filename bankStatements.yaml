@@ -1,0 +1,17 @@
+# bank_statements.yaml
+
+# 1. ROOT DIRECTORY PATH
+# Path to the 'bank_statements' folder relative to the YAML file
+path: datasets/bank_statements
+
+# 2. TRAINING, VALIDATION AND TEST IMAGE PATHS (relative to 'path')
+train: images/train  
+val: images/val
+test: images/test      
+
+# 3. NUMBER OF CLASSES
+nc: 1
+
+# 4. CLASS NAMES (0 must match 'table')
+names: 
+  0: table
