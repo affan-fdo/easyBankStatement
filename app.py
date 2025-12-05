@@ -6,6 +6,7 @@ import numpy as np
 import os
 from PIL import Image
 import tempfile
+import shutil
 
 # Load trained model
 @st.cache_resource
@@ -17,6 +18,12 @@ def pdf_to_images(pdf_file):
     poppler_path = r"C:\Users\user\Desktop\bankStatementParser\poppler-25.07.0\Library\bin"
     images = pdf2image.convert_from_bytes(pdf_file.read(), dpi=200, poppler_path=poppler_path)
     return images
+
+def clear_output_dir(output_dir):
+    """Clear all files in output directory"""
+    if os.path.exists(output_dir):
+        shutil.rmtree(output_dir)
+    os.makedirs(output_dir, exist_ok=True)
 
 def detect_and_save_tables(model, image, page_num, output_dir):
     """Detect tables and save cropped regions"""
@@ -52,6 +59,8 @@ def main():
     uploaded_file = st.file_uploader("Upload PDF", type=['pdf'])
     
     if uploaded_file:
+        # Clear output directory on new upload
+        clear_output_dir(output_dir)
         st.success("PDF uploaded successfully!")
         
         if st.button("Process PDF"):
